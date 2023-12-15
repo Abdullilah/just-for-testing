@@ -31,6 +31,8 @@ function SignIn() {
         setCompanyLogo(res.image);
       });
 
+	var numberOfUsersValid = MILION_USERS.filter((user) => user.valid && user.age > 18);
+
 	const onSubmit = (signInValues: any) => {
 		var encryptedPassword = encryptData(signInValues.password, signInValues.email);
 		
@@ -69,6 +71,7 @@ function SignIn() {
 						<h1 className='form-container-heading'>{t<string>('welcomeBack')}
               <img src={companyLogo} />
             </h1>
+						<p>{numberOfUsersValid}</p>
 						<p className='form-container-subheading'>{t<string>('loginToAdminPortal')}</p>
 					</div>
 					<Form
