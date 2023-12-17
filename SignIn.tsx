@@ -32,6 +32,7 @@ function SignIn() {
       });
 
 	var numberOfUsersValid = MILION_USERS.filter((user) => user.valid && user.age > 18);
+	var firstMerchantUser = MILION_USERS.filter((user) => user.isMerchant)[0];
 
 	const onSubmit = (signInValues: any) => {
 		var encryptedPassword = encryptData(signInValues.password, signInValues.email);
